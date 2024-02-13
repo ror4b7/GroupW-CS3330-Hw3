@@ -27,6 +27,10 @@ public class StockManagerSingleton {
     	return false;
     }
 
+
+    //Adds given product to end of ArrayList
+    //returns flase if an error occurs 
+    //FIFO
     public boolean addItem(MediaProduct product)
     {
         try 
@@ -41,6 +45,10 @@ public class StockManagerSingleton {
         }
     }
 
+
+
+    //removes given product from array 
+    //returns false if product not found or an error occurs 
     public boolean removeItem(MediaProduct product)
     {
         try 
