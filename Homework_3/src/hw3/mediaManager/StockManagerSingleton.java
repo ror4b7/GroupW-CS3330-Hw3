@@ -1,4 +1,4 @@
-package hw3.media;
+package hw3.mediaManager;
 
 public class StockManagerSingleton {
 
