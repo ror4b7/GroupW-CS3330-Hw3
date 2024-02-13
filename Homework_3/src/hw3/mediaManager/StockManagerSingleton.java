@@ -27,7 +27,18 @@ public class StockManagerSingleton {
     	return false;
     }
 
-   
+    public boolean addItem(MediaProduct product)
+    {
+        try 
+        {
+            inventory.add(product); 
+            return true;
+        } 
+        catch (Exception e) 
+        {
+            return false;
+        }
+    }
     
     //Rachel's method stub 1
     public boolean updateItemPrice(MediaProduct product, double newPrice) {
