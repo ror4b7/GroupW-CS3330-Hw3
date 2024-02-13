@@ -26,5 +26,12 @@ public class StockManagerSingleton {
     	
     	return false;
     }
+    
+    //Rachel's method stub 1
+    public boolean updateItemPrice(MediaProduct product, double newPrice) {
+    	
+    	return false;
+    	
+    }
 
 }
