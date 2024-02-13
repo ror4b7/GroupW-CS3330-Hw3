@@ -1,5 +1,5 @@
 package hw3.media;
 
-public class VinylRecordProduct {
+public class VinylRecordProduct extends MediaProduct {
 
 }

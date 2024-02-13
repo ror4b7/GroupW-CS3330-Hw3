@@ -1,6 +1,8 @@
 package hw3.media;
 
-public class TapeRecordProduct {
+import java.util.ArrayList;
+
+public class TapeRecordProduct extends MediaProduct {
 	
 	//Rachel's method stub 3
 	getTapeRecordList(ArrayList<MediaProduct> productList) {
