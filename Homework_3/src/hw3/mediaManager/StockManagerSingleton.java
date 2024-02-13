@@ -32,12 +32,41 @@ public class StockManagerSingleton {
         try 
         {
             inventory.add(product); 
+            
             return true;
         } 
         catch (Exception e) 
         {
             return false;
         }
+    }
+
+    public boolean removeItem(MediaProduct product)
+    {
+        try 
+        {
+        int index = 0; 
+        for (MediaProduct item : inventory)
+        {
+            if (item.equals(product))
+            {
+                inventory.remove(index); 
+                return true; 
+            }
+
+            else
+            {
+                index += 1; 
+            }
+
+        }
+
+        return false; 
+    }
+    catch (Exception e)
+    {
+        return false; 
+    }
     }
     
     //Rachel's method stub 1
