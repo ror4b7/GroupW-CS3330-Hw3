@@ -102,4 +102,13 @@ public class StockManagerSingleton {
         return itemList;
     }
 
+    //prints all media products in the given productList
+    public void printListOfMediaProduct(ArrayList<MediaProduct> productList) {
+        
+        for(int i=0;i<productList.size();i++) {
+            //printing each individual product
+            System.out.println(productList.get(i).toString());
+        }
+    }
+    
 }
