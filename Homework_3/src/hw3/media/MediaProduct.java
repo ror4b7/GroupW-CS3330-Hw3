@@ -39,7 +39,7 @@ public class MediaProduct
         this.genre = genre;
     }
 
-    MediaProduct(String title, double price, int year, Genre genre) {
+    public MediaProduct(String title, double price, int year, Genre genre) {
         this.title = title;
         this.price = price;
         this.year = year;
