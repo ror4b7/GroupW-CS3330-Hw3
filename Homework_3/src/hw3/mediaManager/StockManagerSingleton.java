@@ -1,13 +1,17 @@
 package hw3.mediaManager;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Scanner;
+
 import hw3.media.*;
 
 public class StockManagerSingleton {
 	
 	// Data Section
     private static final StockManagerSingleton INSTANCE = new StockManagerSingleton(); // Only one instance of StockManagerSingleton
-    private ArrayList<MediaProduct> inventory;
+    public ArrayList<MediaProduct> inventory;
     private String inventoryFilePath = "../inventory.csv";
 
     //Private constructor (because its a singleton)
@@ -22,14 +26,50 @@ public class StockManagerSingleton {
     
     // Assignment object methods
     
+    // Initializes the inventory form inventory.csv
     public boolean initializeStock() {
-    	
-    	return false;
+        try {
+            // Open the inventory file for reading
+            Scanner fileIn = new Scanner(new FileInputStream(inventoryFilePath));
+            
+            // Read through the file line by line
+            while (fileIn.hasNextLine()) {
+                String line = fileIn.nextLine();
+                // Split each line into parts based on commas
+                String[] tokens = line.split(",");
+                
+                // The first token indicates the type of media product
+                String type = tokens[0];
+                
+                // Determine the product type and create corresponding product instance
+                switch (type) {
+                    case "CD":
+                        // Create and add a new CDRecordProduct to inventory
+                        inventory.add(new CDRecordProduct(tokens[1], Double.parseDouble(tokens[2]), Integer.parseInt(tokens[3]), Genre.valueOf(tokens[4].toUpperCase())));
+                        break;
+                    case "Tape":
+                        // Create and add a new TapeRecordProduct to inventory
+                        inventory.add(new TapeRecordProduct(tokens[1], Double.parseDouble(tokens[2]), Integer.parseInt(tokens[3]), Genre.valueOf(tokens[4].toUpperCase())));
+                        break;
+                    case "Vinyl":
+                        // Create and add a new VinylRecordProduct to inventory
+                        inventory.add(new VinylRecordProduct(tokens[1], Double.parseDouble(tokens[2]), Integer.parseInt(tokens[3]), Genre.valueOf(tokens[4].toUpperCase())));
+                        break;
+                }
+            }
+            
+            // Successfully initialized the stock, return true
+            fileIn.close();
+            return true;
+        } catch (FileNotFoundException e) {
+            // File not found, return false to indicate failure
+            return false;
+        }
     }
 
 
     //Adds given product to end of ArrayList
-    //returns flase if an error occurs 
+    //returns false if an error occurs 
     //FIFO
     public boolean addItem(MediaProduct product)
     {
