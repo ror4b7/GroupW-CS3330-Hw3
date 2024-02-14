@@ -41,7 +41,7 @@ public class MediaProduct
 
     MediaProduct(String title, double price, int year, Genre genre) {
         this.title = title;
-        this.Price = price;
+        this.price = price;
         this.year = year;
         this.genre = genre;
     }

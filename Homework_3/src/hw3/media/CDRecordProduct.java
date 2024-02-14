@@ -9,7 +9,7 @@ public class CDRecordProduct extends MediaProduct {
         super(title, price, year, genre);
     }
 	//Rachel's method stub 2
-	getCDRecordsList(ArrayList<MediaProduct> productList){
+	public boolean getCDRecordsList(ArrayList<MediaProduct> productList){
 		
 		return false;
 		

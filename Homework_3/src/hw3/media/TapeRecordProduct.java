@@ -10,7 +10,7 @@ public class TapeRecordProduct extends MediaProduct {
     }
 	
 	//Rachel's method stub 3
-	getTapeRecordList(ArrayList<MediaProduct> productList) {
+	public boolean getTapeRecordList(ArrayList<MediaProduct> productList) {
 		
 		return false; 
 		
