@@ -26,6 +26,56 @@ public class StockManagerSingleton {
     	
     	return false;
     }
+
+
+    //Adds given product to end of ArrayList
+    //returns flase if an error occurs 
+    //FIFO
+    public boolean addItem(MediaProduct product)
+    {
+        try 
+        {
+            inventory.add(product); 
+            
+            return true;
+        } 
+        catch (Exception e) 
+        {
+            return false;
+        }
+    }
+
+
+
+    //removes given product from array 
+    //returns false if product not found or an error occurs 
+    public boolean removeItem(MediaProduct product)
+    {
+        try 
+        {
+        int index = 0; 
+        for (MediaProduct item : inventory)
+        {
+            if (item.equals(product))
+            {
+                inventory.remove(index); 
+                return true; 
+            }
+
+            else
+            {
+                index += 1; 
+            }
+
+        }
+
+        return false; 
+    }
+    catch (Exception e)
+    {
+        return false; 
+    }
+    }
     
     //Rachel's method stub 1
     public boolean updateItemPrice(MediaProduct product, double newPrice) {
