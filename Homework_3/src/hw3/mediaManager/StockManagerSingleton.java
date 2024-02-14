@@ -84,4 +84,22 @@ public class StockManagerSingleton {
     	
     }
 
+    //finds all products priced cheaper than the given maxPrice
+    //returns said products in a newly-made ArrayList
+    public ArrayList<MediaProduct> getMediaProductBelowPrice(int maxPrice) {
+        
+        //list to be returned
+        ArrayList<MediaProduct> itemList = new ArrayList<MediaProduct>();
+        
+        //cycling through the list
+        for(int i=0;i<inventory.size();i++) {
+            MediaProduct item = inventory.get(i);
+            if(item.getPrice()<maxPrice) {
+                itemList.add(item);
+            }
+
+        }
+        return itemList;
+    }
+
 }
