@@ -61,10 +61,9 @@ public class MediaProduct
 		return type;
     }
 
-    // to string method to include the type of the subclass
-	@Override
+    // toString method to include the type of the subclass
 	public String toString() {
-		return "MediaProduct [type="+ this.getTypeOfProduct() +", title=" + title + ", price=" + price + ", year=" + year + ", genre=" + genre + "]";
+		return this.getTypeOfProduct() + "," + title + "," + price + "," + year + "," + genre;
 	}
 
 

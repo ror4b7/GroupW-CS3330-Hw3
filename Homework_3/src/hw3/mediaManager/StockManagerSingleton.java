@@ -1,7 +1,10 @@
 package hw3.mediaManager;
 
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -70,6 +73,40 @@ public class StockManagerSingleton {
             return false;
         }
     }
+    
+    // this method saves inventory to a file located at inventoryFilePath
+    public boolean saveStock() {
+        String headerLine = null;
+
+        // Read the header line from the file
+        try (Scanner fileIn = new Scanner(new FileInputStream(inventoryFilePath))) {
+            if (fileIn.hasNextLine()) {
+                headerLine = fileIn.nextLine(); // Read the first line (header)
+            }
+        } catch (FileNotFoundException e) {
+            // 
+            return false;
+        }
+
+        // overwrite the file
+        try (PrintWriter fileOut = new PrintWriter(new FileOutputStream(inventoryFilePath, false))) {
+            // just makes sure that the header is the first line in the file
+        	if (headerLine != null) {
+                fileOut.println(headerLine); // Write the original header back
+            }
+
+            // Iterate over the inventory and write each item to the file
+            for (MediaProduct product : inventory) {
+                String line = product.toString();
+                fileOut.println(line);
+            }
+            
+            return true; // Successfully saved the stock
+        } catch (IOException e) {
+            return false; // An error occurred while writing to the file
+        }
+    }
+
 
 
     //Adds given product to end of ArrayList
@@ -159,7 +196,7 @@ public class StockManagerSingleton {
         //list to hold VinylRecordProduct in the productList
         ArrayList<VinylRecordProduct> vinylList = new ArrayList<VinylRecordProduct>();
         
-        //sifting through productList to find vinyls
+        //sifting through productList to find vinyl products
         for(MediaProduct product : productList) {
             if(product instanceof VinylRecordProduct) {
                 vinylList.add((VinylRecordProduct) product);
