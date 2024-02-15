@@ -150,5 +150,20 @@ public class StockManagerSingleton {
             System.out.println(productList.get(i).toString());
         }
     }
+
+    public ArrayList<VinylRecordProduct> getVinylRecordList(ArrayList<MediaProduct> productList) {
+        //list to hold VinylRecordProduct in the productList
+        ArrayList<VinylRecordProduct> vinylList = new ArrayList<VinylRecordProduct>();
+        
+        //sifting through productList to find vinyls
+        for(MediaProduct product : productList) {
+            if(product instanceof VinylRecordProduct) {
+                vinylList.add((VinylRecordProduct) product);
+            }
+            else continue;
+        }
+
+        return vinylList;
+    } 
     
 }
