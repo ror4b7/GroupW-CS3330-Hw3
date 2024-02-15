@@ -11,8 +11,8 @@ public class StockManagerSingleton {
 	
 	// Data Section
     private static final StockManagerSingleton INSTANCE = new StockManagerSingleton(); // Only one instance of StockManagerSingleton
-    public ArrayList<MediaProduct> inventory;
-    private String inventoryFilePath = "../inventory.csv";
+    private ArrayList<MediaProduct> inventory;
+    private String inventoryFilePath = "inventory.csv";
 
     //Private constructor (because its a singleton)
     private StockManagerSingleton() {
@@ -26,7 +26,11 @@ public class StockManagerSingleton {
     
     // Assignment object methods
     
-    // Initializes the inventory form inventory.csv
+    public ArrayList<MediaProduct> getInventory() {
+		return inventory;
+	}
+    
+	// Initializes the inventory form inventory.csv
     public boolean initializeStock() {
         try {
             // Open the inventory file for reading

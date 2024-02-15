@@ -46,5 +46,26 @@ public class MediaProduct
         this.genre = genre;
     }
     
+    // Helper method returns the type of product based on the subclass
+    private String getTypeOfProduct() {
+    	String type = null;
+    	if(this.getClass().getName().equals("hw3.media.VinylRecordProduct")) {
+    		type = "Vinyl";
+    	}
+    	if(this.getClass().getName().equals("hw3.media.CDRecordProduct")) {
+    		type = "CD";
+    	}
+    	if(this.getClass().getName().equals("hw3.media.TapeRecordProduct")) {
+    		type = "Tape";
+    	}
+		return type;
+    }
+
+    // to string method to include the type of the subclass
+	@Override
+	public String toString() {
+		return "MediaProduct [type="+ this.getTypeOfProduct() +", title=" + title + ", price=" + price + ", year=" + year + ", genre=" + genre + "]";
+	}
+
 
 }
