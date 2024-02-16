@@ -9,11 +9,4 @@ public class TapeRecordProduct extends MediaProduct {
         super(title, price, year, genre);
     }
 	
-	//Rachel's method stub 3
-	public boolean getTapeRecordList(ArrayList<MediaProduct> productList) {
-		
-		return false; 
-		
-	}
-
 }

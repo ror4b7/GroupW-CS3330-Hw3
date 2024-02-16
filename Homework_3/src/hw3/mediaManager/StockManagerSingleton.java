@@ -157,13 +157,6 @@ public class StockManagerSingleton {
         return false; 
     }
     }
-    
-    //Rachel's method stub 1
-    public boolean updateItemPrice(MediaProduct product, double newPrice) {
-    	
-    	return false;
-    	
-    }
 
     //finds all products priced cheaper than the given maxPrice
     //returns said products in a newly-made ArrayList
@@ -205,6 +198,82 @@ public class StockManagerSingleton {
         }
 
         return vinylList;
-    } 
+    }
     
+    
+    
+    //Method Description
+    //		Updates the price of the given media product to the newPrice
+    //		Returns true if the update is successful, false otherwise
+    public boolean updateItemPrice(MediaProduct product, double newPrice) {
+    	product.setPrice(newPrice);
+    	
+    	//Check if the product price was successfully set to the passed parameter, and return true if they are equal
+    	if(product.getPrice() == newPrice) {
+    		return true;
+    	}
+    	
+    	//Else if prices are not equal, return false
+    	return false;
+    	
+    }
+    
+    //Method Description: 
+    //		Gets the media products as an ArrayList.
+    //		Creates a new ArrayList of CDRecordProduct that filters the CD records and returns the ArrayList. 
+    public ArrayList<CDRecordProduct> getCDRecordsList(ArrayList<MediaProduct> productList){
+    	
+    	//Creates new array to hold CD Records
+    	ArrayList<CDRecordProduct> CDRecordList = new ArrayList<CDRecordProduct>();
+    	
+    	//Cycle through products and add CDRecords to the array
+    	for(MediaProduct product : productList) {
+    		if(product instanceof CDRecordProduct) {
+    			CDRecordList.add((CDRecordProduct) product);
+    		}
+    	}
+    	
+    	//Return list of CD Records
+        return CDRecordList;
+	}
+    
+    //prints all CD Record products in the given productList
+    public void printListOfCDRecordProduct(ArrayList<CDRecordProduct> productList) {
+        
+        for(int i=0;i<productList.size();i++) {
+            //printing each individual product
+            System.out.println(productList.get(i).toString());
+        }
+    }
+		
+	//Method Description
+    //		Gets the media products as an ArrayList.
+    //		This creates a new ArrayList of TapeRecordProduct that filters the tape records and returns the ArrayList.
+    public ArrayList<TapeRecordProduct> getTapeRecordList(ArrayList<MediaProduct> productList) {
+			
+    	//Creates new array to hold CD Records
+    	ArrayList<TapeRecordProduct> TapeRecordList = new ArrayList<TapeRecordProduct>();
+    	
+    	//Cycle through products and add CDRecords to the array
+    	for(MediaProduct product : productList) {
+    		if(product instanceof TapeRecordProduct) {
+    			TapeRecordList.add((TapeRecordProduct) product);
+    		}
+    		
+    	}
+    	
+    	//Return list of CD Records
+        return TapeRecordList;
+    }
+    
+    //prints all Tape Record products in the given productList
+    public void printListOfTapeRecordProduct(ArrayList<TapeRecordProduct> productList) {
+        
+        for(int i=0;i<productList.size();i++) {
+            //printing each individual product
+            System.out.println(productList.get(i).toString());
+        }
+    }
+
 }
+    

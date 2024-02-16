@@ -8,11 +8,6 @@ public class CDRecordProduct extends MediaProduct {
 	public CDRecordProduct(String title, double price, int year, Genre genre) {
         super(title, price, year, genre);
     }
-	//Rachel's method stub 2
-	public boolean getCDRecordsList(ArrayList<MediaProduct> productList){
-		
-		return false;
-		
-	}
+
 
 }
