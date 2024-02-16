@@ -185,6 +185,15 @@ public class StockManagerSingleton {
         }
     }
 
+    //prints all CD Record products in the given productList
+    public void printListOfVinylRecordProduct(ArrayList<VinylRecordProduct> productList) {
+        
+        for(int i=0;i<productList.size();i++) {
+            //printing each individual product
+            System.out.println(productList.get(i).toString());
+        }
+    }
+    
     public ArrayList<VinylRecordProduct> getVinylRecordList(ArrayList<MediaProduct> productList) {
         //list to hold VinylRecordProduct in the productList
         ArrayList<VinylRecordProduct> vinylList = new ArrayList<VinylRecordProduct>();

@@ -46,6 +46,12 @@ public class Main {
 		//Print only CD Records from Inventory
 		manager.printListOfCDRecordProduct(manager.getCDRecordsList(manager.getInventory()));
 		
+		System.out.println("\n");
+		System.out.println("Printing list of Vinyl Records from the inventory:");
+		
+		//Print only CD Records from Inventory
+		manager.printListOfVinylRecordProduct(manager.getVinylRecordList(manager.getInventory()));
+		
 		
 		
 		
