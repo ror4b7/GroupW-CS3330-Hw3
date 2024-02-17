@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+//import java.util.List;
 import java.util.Scanner;
 
 import hw3.media.*;
@@ -52,15 +53,15 @@ public class StockManagerSingleton {
                 switch (type) {
                     case "CD":
                         // Create and add a new CDRecordProduct to inventory
-                        inventory.add(new CDRecordProduct(tokens[1], Double.parseDouble(tokens[2]), Integer.parseInt(tokens[3]), Genre.valueOf(tokens[4].toUpperCase())));
+                        inventory.add((MediaProduct) new CDRecordProduct(tokens[1], Double.parseDouble(tokens[2]), Integer.parseInt(tokens[3]), Genre.valueOf(tokens[4].toUpperCase())));
                         break;
                     case "Tape":
                         // Create and add a new TapeRecordProduct to inventory
-                        inventory.add(new TapeRecordProduct(tokens[1], Double.parseDouble(tokens[2]), Integer.parseInt(tokens[3]), Genre.valueOf(tokens[4].toUpperCase())));
+                        inventory.add((MediaProduct) new TapeRecordProduct(tokens[1], Double.parseDouble(tokens[2]), Integer.parseInt(tokens[3]), Genre.valueOf(tokens[4].toUpperCase())));
                         break;
                     case "Vinyl":
                         // Create and add a new VinylRecordProduct to inventory
-                        inventory.add(new VinylRecordProduct(tokens[1], Double.parseDouble(tokens[2]), Integer.parseInt(tokens[3]), Genre.valueOf(tokens[4].toUpperCase())));
+                        inventory.add((MediaProduct) new VinylRecordProduct(tokens[1], Double.parseDouble(tokens[2]), Integer.parseInt(tokens[3]), Genre.valueOf(tokens[4].toUpperCase())));
                         break;
                 }
             }
@@ -185,14 +186,6 @@ public class StockManagerSingleton {
         }
     }
 
-    //prints all CD Record products in the given productList
-    public void printListOfVinylRecordProduct(ArrayList<VinylRecordProduct> productList) {
-        
-        for(int i=0;i<productList.size();i++) {
-            //printing each individual product
-            System.out.println(productList.get(i).toString());
-        }
-    }
     
     public ArrayList<VinylRecordProduct> getVinylRecordList(ArrayList<MediaProduct> productList) {
         //list to hold VinylRecordProduct in the productList
@@ -246,14 +239,6 @@ public class StockManagerSingleton {
         return CDRecordList;
 	}
     
-    //prints all CD Record products in the given productList
-    public void printListOfCDRecordProduct(ArrayList<CDRecordProduct> productList) {
-        
-        for(int i=0;i<productList.size();i++) {
-            //printing each individual product
-            System.out.println(productList.get(i).toString());
-        }
-    }
 		
 	//Method Description
     //		Gets the media products as an ArrayList.
@@ -275,14 +260,6 @@ public class StockManagerSingleton {
         return TapeRecordList;
     }
     
-    //prints all Tape Record products in the given productList
-    public void printListOfTapeRecordProduct(ArrayList<TapeRecordProduct> productList) {
-        
-        for(int i=0;i<productList.size();i++) {
-            //printing each individual product
-            System.out.println(productList.get(i).toString());
-        }
-    }
 
 }
     
