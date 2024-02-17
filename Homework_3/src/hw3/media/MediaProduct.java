@@ -48,18 +48,16 @@ public class MediaProduct
     
     // Helper method returns the type of product based on the subclass
     private String getTypeOfProduct() {
-    	String type = null;
-    	if(this.getClass().getName().equals("hw3.media.VinylRecordProduct")) {
-    		type = "Vinyl";
-    	}
-    	if(this.getClass().getName().equals("hw3.media.CDRecordProduct")) {
-    		type = "CD";
-    	}
-    	if(this.getClass().getName().equals("hw3.media.TapeRecordProduct")) {
-    		type = "Tape";
-    	}
-		return type;
+        if (this instanceof VinylRecordProduct) {
+            return "Vinyl";
+        } else if (this instanceof CDRecordProduct) {
+            return "CD";
+        } else if (this instanceof TapeRecordProduct) {
+            return "Tape";
+        }
+        return null;
     }
+
 
     // toString method to include the type of the subclass
 	public String toString() {
