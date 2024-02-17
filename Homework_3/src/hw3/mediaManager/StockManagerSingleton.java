@@ -186,14 +186,6 @@ public class StockManagerSingleton {
         }
     }
 
-    //prints all CD Record products in the given productList
-    public void printListOfVinylRecordProduct(ArrayList<VinylRecordProduct> productList) {
-        
-        for(int i=0;i<productList.size();i++) {
-            //printing each individual product
-            System.out.println(productList.get(i).toString());
-        }
-    }
     
     public ArrayList<VinylRecordProduct> getVinylRecordList(ArrayList<MediaProduct> productList) {
         //list to hold VinylRecordProduct in the productList
@@ -247,14 +239,6 @@ public class StockManagerSingleton {
         return CDRecordList;
 	}
     
-    //prints all CD Record products in the given productList
-    public void printListOfCDRecordProduct(ArrayList<CDRecordProduct> productList) {
-        
-        for(int i=0;i<productList.size();i++) {
-            //printing each individual product
-            System.out.println(productList.get(i).toString());
-        }
-    }
 		
 	//Method Description
     //		Gets the media products as an ArrayList.
@@ -276,14 +260,6 @@ public class StockManagerSingleton {
         return TapeRecordList;
     }
     
-    //prints all Tape Record products in the given productList
-    public void printListOfTapeRecordProduct(ArrayList<TapeRecordProduct> productList) {
-        
-        for(int i=0;i<productList.size();i++) {
-            //printing each individual product
-            System.out.println(productList.get(i).toString());
-        }
-    }
 
 }
     
